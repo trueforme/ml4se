@@ -1,0 +1,42 @@
+# Simple DFS implementation (with tabs and noise)\n
+\n
+def dfs(graph, start, visited=None):\n
+\n
+\tif visited is None:\n
+\n
+\t\tvisited = set()\n
+\n
+\t# mark visited\n
+\n
+\tvisited.add(start)\n
+\n
+\tfor neighbor in graph.get(start, []):\n
+\n
+\t\tif neighbor not in visited:\n
+\n
+\t\t\tdfs(graph, neighbor, visited)\n
+\n
+\treturn visited\n
+\n
+# sample graph\n
+\n
+graph = {\n
+\n
+\t'A': ['B', 'C'],\n
+\n
+\t'B': ['D'],\n
+\n
+\t'C': ['E'],\n
+\n
+\t'D': [],\n
+\n
+\t'E': []\n
+\n
+}\n
+\n
+start = 'A'\n
+\n
+result = dfs(graph, start)\n
+\n
+print(sorted(result))\n
+\n

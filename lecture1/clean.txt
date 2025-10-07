@@ -1,0 +1,12 @@
+def name_dfs(name_graph, name_start, name_visited=None):\n
+    if name_visited is None:\n
+        name_visited = set()\n
+    name_visited.add(name_start)\n
+    for name_neighbor in name_graph.get(name_start, []):\n
+        if name_neighbor not in name_visited:\n
+            name_dfs(name_graph, name_neighbor, name_visited)\n
+    return name_visited\n
+name_graph = {'A': ['B', 'C'], 'B': ['D'], 'C': ['E'], 'D': [], 'E': []}\n
+name_start = 'A'\n
+name_result = name_dfs(name_graph, name_start)\n
+print(sorted(name_result))\n
